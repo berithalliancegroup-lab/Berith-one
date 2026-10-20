@@ -4,679 +4,188 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#102b55">
-<title>BERITH ONE</title>
+<title>BERITH ONE | BERITH ALLIANCE GROUP</title>
 <style>
-:root {
-  --navy: #102b55;
-  --blue: #1d4f91;
-  --gold: #d7ad45;
-  --pale: #f2f6fc;
-  --ink: #18263b;
-  --muted: #68778c;
-  --line: #e1e8f1;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: system-ui, Arial, sans-serif;
-  color: var(--ink);
-  background: var(--pale);
-}
-button, input, select, textarea { font: inherit; }
-button { cursor: pointer; }
-.hidden { display: none !important; }
-.login-wrap {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background: linear-gradient(135deg, var(--navy), var(--blue));
-}
-.login-card {
-  width: min(100%, 440px);
-  background: white;
-  border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 22px 60px #06162d55;
-}
-.brand-mark {
-  width: 60px;
-  height: 60px;
-  display: grid;
-  place-items: center;
-  border-radius: 18px;
-  background: var(--navy);
-  color: var(--gold);
-  font-weight: 900;
-  font-size: 24px;
-  margin-bottom: 18px;
-  border: 2px solid var(--gold);
-}
-h1, h2, h3, p { margin-top: 0; }
-.login-card h1 { color: var(--navy); margin-bottom: 6px; }
-.tagline { color: var(--muted); margin-bottom: 24px; }
-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  margin: 13px 0 6px;
-}
-input, select, textarea {
-  width: 100%;
-  padding: 12px 13px;
-  border: 1px solid #ccd7e5;
-  border-radius: 10px;
-  background: white;
-  color: var(--ink);
-}
-textarea { min-height: 86px; resize: vertical; }
-.btn {
-  border: 0;
-  border-radius: 10px;
-  padding: 11px 15px;
-  font-weight: 750;
-}
-.btn-primary { background: var(--blue); color: white; }
-.btn-gold { background: var(--gold); color: var(--navy); }
-.btn-outline {
-  background: white;
-  color: var(--navy);
-  border: 1px solid var(--line);
-}
-.btn-block { width: 100%; margin-top: 18px; }
-.note, .small { color: var(--muted); font-size: 12px; line-height: 1.5; }
-.status {
-  margin-top: 14px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  font-size: 13px;
-  background: #eef4fb;
-  color: var(--navy);
-}
-.status.error { background: #fff1f0; color: #b42318; }
-.status.success { background: #eaf7ef; color: #16794b; }
-.app {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 250px 1fr;
-}
-aside {
-  background: var(--navy);
-  color: white;
-  padding: 22px 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-.side-brand {
-  display: flex;
-  gap: 11px;
-  align-items: center;
-  padding: 0 7px 18px;
-  border-bottom: 1px solid #ffffff25;
-}
-.side-brand .brand-mark {
-  width: 45px;
-  height: 45px;
-  font-size: 18px;
-  margin: 0;
-  border-radius: 13px;
-  flex-shrink: 0;
-}
-.side-brand strong { display: block; letter-spacing: 1px; }
-.side-brand small { color: #cbd8e9; font-size: 11px; }
-.nav-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.7px;
-  color: #aabbd1;
-  padding: 0 12px;
-}
-.nav { display: grid; gap: 5px; }
-.nav button {
-  text-align: left;
-  background: transparent;
-  color: #eaf0f8;
-  border: 0;
-  padding: 11px 12px;
-  border-radius: 10px;
-  font-weight: 650;
-}
-.nav button:hover, .nav button.active {
-  background: #ffffff18;
-  color: var(--gold);
-}
-.side-bottom {
-  margin-top: auto;
-  padding: 12px;
-  color: #bdcce0;
-  font-size: 12px;
-  line-height: 1.5;
-}
-main { min-width: 0; }
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  padding: 18px 26px;
-  background: white;
-  border-bottom: 1px solid var(--line);
-  position: sticky;
-  top: 0;
-  z-index: 3;
-}
-.topbar h2 { margin: 0; color: var(--navy); font-size: 20px; }
-.user-area { display: flex; align-items: center; gap: 10px; }
-.avatar {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #e9f0fa;
-  color: var(--navy);
-  font-weight: 800;
-}
-.content { padding: 26px; max-width: 1500px; margin: auto; }
-.welcome {
-  background: linear-gradient(120deg, var(--navy), var(--blue));
-  color: white;
-  padding: 25px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 22px;
-}
-.welcome h1 { font-size: clamp(22px, 3vw, 32px); margin-bottom: 8px; }
-.welcome p { margin: 0; color: #d9e6f7; }
-.gold-line {
-  width: 70px;
-  height: 4px;
-  background: var(--gold);
-  border-radius: 5px;
-  margin-top: 17px;
-}
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin-bottom: 22px;
-}
-.stat, .panel, .pole-card {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 15px;
-  padding: 18px;
-  box-shadow: 0 10px 28px #102b550d;
-}
-.stat .label { color: var(--muted); font-size: 12px; font-weight: 700; }
-.stat .number { font-size: 28px; font-weight: 850; color: var(--navy); margin-top: 7px; }
-.stat .hint { font-size: 11px; color: var(--muted); margin-top: 3px; }
-.section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 26px 0 14px;
-}
-.section-head h3 { margin: 0; color: var(--navy); font-size: 18px; }
-.poles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.pole-card { cursor: pointer; }
-.pole-icon {
-  width: 43px;
-  height: 43px;
-  display: grid;
-  place-items: center;
-  background: #edf3fb;
-  border-radius: 12px;
-  font-size: 21px;
-  margin-bottom: 13px;
-}
-.pole-card h4 { margin: 0 0 6px; color: var(--navy); }
-.pole-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
-.panel { margin-bottom: 18px; }
-.panel h3 { color: var(--navy); font-size: 17px; margin-bottom: 14px; }
-.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 15px; }
-.form-grid .full { grid-column: 1 / -1; }
-.form-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
-.table-wrap { overflow: auto; }
-table { width: 100%; border-collapse: collapse; min-width: 700px; }
-th, td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: left; font-size: 13px; }
-th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
-.pill { display: inline-block; padding: 5px 8px; border-radius: 20px; background: #eef4fb; color: var(--blue); font-size: 11px; font-weight: 750; }
-.empty { text-align: center; padding: 26px; color: var(--muted); font-size: 13px; }
-.toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-.toolbar input { max-width: 300px; }
-.connection { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
-.dot { width: 8px; height: 8px; background: #d7a02a; border-radius: 50%; display: inline-block; }
-.dot.online { background: #159455; }
-.mobile-menu { display: none; }
-@media(max-width:1050px) {
-  .app { grid-template-columns: 210px 1fr; }
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .poles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .content { padding: 20px; }
-}
-@media(max-width:700px) {
-  .app { grid-template-columns: 1fr; }
-  aside { display: none; }
-  aside.open {
-    display: flex;
-    position: fixed;
-    inset: 0 auto 0 0;
-    width: 270px;
-    z-index: 10;
-    box-shadow: 0 0 0 100vw #06162d77;
-  }
-  .mobile-menu { display: inline-block; }
-  .topbar { padding: 13px 15px; }
-  .topbar h2 { font-size: 17px; }
-  .user-name { display: none; }
-  .content { padding: 14px; }
-  .welcome { padding: 20px; align-items: flex-start; }
-  .welcome .btn { display: none; }
-  .stats { gap: 9px; }
-  .stat { padding: 13px; }
-  .stat .number { font-size: 23px; }
-  .poles { grid-template-columns: 1fr; }
-  .form-grid { grid-template-columns: 1fr; }
-  .form-grid .full { grid-column: auto; }
-  .section-head { align-items: flex-start; flex-direction: column; }
-}
+:root{--navy:#102b55;--blue:#1d4f91;--gold:#d7ad45;--pale:#f2f6fc;--ink:#18263b;--muted:#68778c;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--pale);color:var(--ink)}
+header{background:var(--navy);color:white;padding:24px 18px}
+header h1{margin:0;font-size:26px}
+header p{margin:8px 0 0;color:#e5eaf4}
+main{max-width:1100px;margin:auto;padding:18px}
+.welcome{background:white;padding:20px;border-radius:14px;border-left:5px solid var(--gold);margin-bottom:18px}
+.welcome h2{margin-top:0;color:var(--navy)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin-bottom:20px}
+.stat,.pole,.panel{background:white;padding:16px;border-radius:12px;box-shadow:0 2px 9px #102b5510}
+.stat strong{display:block;color:var(--blue);font-size:24px;margin-top:8px}
+h2,h3{color:var(--navy)}
+.poles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.pole{border-top:4px solid var(--gold)}
+.pole h3{margin:4px 0 8px}
+.pole p{color:var(--muted);font-size:14px;line-height:1.5}
+button{background:var(--blue);color:white;border:0;padding:11px 15px;border-radius:8px;cursor:pointer;font-weight:bold}
+button:hover{background:var(--navy)}
+input,select,textarea{width:100%;padding:11px;margin:6px 0 12px;border:1px solid #ccd5e2;border-radius:8px;font:inherit}
+label{font-size:14px;font-weight:bold}
+.panel{margin-top:20px}
+.note{font-size:13px;color:var(--muted);line-height:1.5}
+#message{margin-top:12px;font-weight:bold;color:var(--blue)}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:13px}
 </style>
 </head>
 <body>
-<!-- La partie 2 continue ici -->
-<main class="container">
-  <header class="topbar">
-    <div>
-      <p class="eyebrow">BERITH ALLIANCE GROUP</p>
-      <h1>BERITH ONE</h1>
-      <p>Une équipe. Une vision. Des résultats.</p>
-    </div>
-    <span class="badge">Version de test</span>
-  </header>
+<header>
+<h1>BERITH ONE</h1>
+<p>BERITH ALLIANCE GROUP · Une équipe. Une vision. Des résultats.</p>
+</header>
+<main>
+<section class="welcome">
+<h2>Bienvenue dans votre espace de gestion</h2>
+<p>Une plateforme pour organiser les activités, les équipes et les projets de BERITH ALLIANCE GROUP.</p>
+</section>
 
-  <section class="welcome card">
-    <h2>Bienvenue dans votre espace de travail</h2>
-    <p>Centralisez les activités, les prospects et les missions de BERITH.</p>
-    <div class="actions">
-      <button id="showLogin" class="btn primary">Connexion</button>
-      <button id="showSignup" class="btn secondary">Créer un compte</button>
-      <button id="logoutBtn" class="btn secondary" hidden>Déconnexion</button>
-    </div>
-    <p id="authMessage" class="message" role="status">Vous n’êtes pas connecté.</p>
-  </section>
+<section class="stats">
+<div class="stat">Pôles d'activité<strong>7</strong></div>
+<div class="stat">Prospects enregistrés<strong id="count">0</strong></div>
+<div class="stat">Version<strong>Test</strong></div>
+</section>
 
-  <section id="authPanel" class="card" hidden>
-    <h2 id="authTitle">Connexion</h2>
-    <form id="authForm">
-      <label for="email">Adresse e-mail</label>
-      <input id="email" type="email" autocomplete="email" required
-        placeholder="votre@email.com">
+<h2>Nos sept pôles</h2>
+<section class="poles" id="poles"></section>
 
-      <label for="password">Mot de passe</label>
-      <input id="password" type="password" autocomplete="current-password"
-        minlength="6" required placeholder="Au moins 6 caractères">
+<section class="panel">
+<h2>Ajouter un prospect — démonstration</h2>
+<p class="note">Cette première version permet de tester l'interface sur cet appareil. Les données sont conservées localement dans ce navigateur ; elles ne sont pas encore partagées avec les autres membres.</p>
+<form id="prospectForm">
+<label for="company">Nom de l'entreprise *</label>
+<input id="company" required placeholder="Ex. : Entreprise ABC">
+<label for="contact">Nom du contact</label>
+<input id="contact" placeholder="Nom et prénom">
+<label for="phone">Téléphone</label>
+<input id="phone" type="tel" placeholder="+33...">
+<label for="pole">Pôle concerné *</label>
+<select id="pole" required></select>
+<label for="status">Statut</label>
+<select id="status">
+<option>Nouveau</option>
+<option>À contacter</option>
+<option>En discussion</option>
+<option>Converti en client</option>
+<option>Abandonné</option>
+</select>
+<label for="notes">Notes</label>
+<textarea id="notes" rows="3" placeholder="Prochaine action ou informations utiles"></textarea>
+<button type="submit">Enregistrer le prospect</button>
+</form>
+<div id="message" role="status"></div>
+</section>
 
-      <button id="authSubmit" class="btn primary" type="submit">Se connecter</button>
-      <button id="cancelAuth" class="btn secondary" type="button">Annuler</button>
-    </form>
-  </section>
-
-  <section id="dashboard" hidden>
-    <div class="card">
-      <h2>Tableau de bord</h2>
-      <p>Compte connecté : <strong id="currentUser">—</strong></p>
-      <p id="connectionStatus" class="message"></p>
-    </div>
-
-    <div class="section-heading">
-      <h2>Les 7 pôles de BERITH</h2>
-      <p>Choisissez un pôle pour consulter ses activités.</p>
-    </div>
-    <div id="polesList" class="poles-grid">
-      <p>Chargement des pôles…</p>
-    </div>
-
-    <section class="card">
-      <h2>Ajouter un prospect</h2>
-      <form id="prospectForm">
-        <label for="company">Nom de l’entreprise / du prospect</label>
-        <input id="company" required placeholder="Ex. : Entreprise ABC">
-
-        <label for="contact">Nom du contact</label>
-        <input id="contact" placeholder="Nom et prénom">
-
-        <label for="phone">Téléphone</label>
-        <input id="phone" type="tel" placeholder="+33…">
-
-        <label for="prospectEmail">E-mail du prospect</label>
-        <input id="prospectEmail" type="email" placeholder="contact@entreprise.com">
-
-        <label for="poleSelect">Pôle concerné</label>
-        <select id="poleSelect" required>
-          <option value="">Choisir un pôle</option>
-        </select>
-
-        <label for="prospectStatus">Statut</label>
-        <select id="prospectStatus">
-          <option value="Nouveau">Nouveau</option>
-          <option value="À contacter">À contacter</option>
-          <option value="En discussion">En discussion</option>
-          <option value="Gagné">Gagné</option>
-          <option value="Perdu">Perdu</option>
-        </select>
-
-        <label for="nextAction">Prochaine action</label>
-        <input id="nextAction" placeholder="Ex. : Appeler vendredi">
-
-        <label for="notes">Notes</label>
-        <textarea id="notes" rows="3" placeholder="Informations utiles"></textarea>
-
-        <button class="btn primary" type="submit">Enregistrer le prospect</button>
-        <p id="prospectMessage" class="message" role="status"></p>
-      </form>
-    </section>
-
-    <section class="card">
-      <h2>Prospects enregistrés</h2>
-      <button id="refreshProspects" class="btn secondary" type="button">
-        Actualiser la liste
-      </button>
-      <div id="prospectsList">
-        <p>Connectez-vous pour consulter les prospects.</p>
-      </div>
-    </section>
-  </section>
-
-  <footer>
-    <p>BERITH ALLIANCE GROUP · BERITH ONE</p>
-    <p>Unir les compétences. Créer les opportunités. Construire l’avenir.</p>
-  </footer>
+<section class="panel">
+<h2>Prospects enregistrés sur cet appareil</h2>
+<div id="prospects"><p class="note">Aucun prospect enregistré pour le moment.</p></div>
+<button type="button" id="exportBtn">Exporter les prospects (CSV)</button>
+</section>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<footer>© BERITH ALLIANCE GROUP · BERITH ONE · Version de démonstration</footer>
 <script>
-/*
-  IMPORTANT :
-  Remplace les deux valeurs ci-dessous par l'URL de ton projet
-  Supabase et sa clé publique (publishable/anon).
-  Ne colle jamais la clé service_role ou une clé secrète.
-*/
-const SUPABASE_URL = "https://enmstwhvxrviywzzaybt.supabase.co";
-const SUPABASE_KEY ="sb_publishable_yVHPLkru9cfKpjQuiJLTkg_mWLsXakZ";
-const authPanel = document.getElementById("authPanel");
-const authTitle = document.getElementById("authTitle");
-const authForm = document.getElementById("authForm");
-const authSubmit = document.getElementById("authSubmit");
-const authMessage = document.getElementById("authMessage");
-const dashboard = document.getElementById("dashboard");
-const currentUser = document.getElementById("currentUser");
-const connectionStatus = document.getElementById("connectionStatus");
-const polesList = document.getElementById("polesList");
-const poleSelect = document.getElementById("poleSelect");
-const prospectForm = document.getElementById("prospectForm");
-const prospectMessage = document.getElementById("prospectMessage");
-const prospectsList = document.getElementById("prospectsList");
-
-let supabaseClient = null;
-let authMode = "login";
-let poles = [];
-
-function showMessage(element, message, isError = false) {
-  element.textContent = message;
-  element.style.color = isError ? "#b42318" : "#167044";
-}
-
-function openAuth(mode) {
-  authMode = mode;
-  authTitle.textContent = mode === "signup" ? "Créer un compte" : "Connexion";
-  authSubmit.textContent = mode === "signup" ? "Créer mon compte" : "Se connecter";
-  document.getElementById("password").autocomplete =
-    mode === "signup" ? "new-password" : "current-password";
-  authPanel.hidden = false;
-  showMessage(authMessage, "");
-}
-
-document.getElementById("showLogin").addEventListener("click", () => openAuth("login"));
-document.getElementById("showSignup").addEventListener("click", () => openAuth("signup"));
-document.getElementById("cancelAuth").addEventListener("click", () => {
-  authPanel.hidden = true;
+const poleNames=[
+" Sécurité & Protection",
+"Tourisme & Culture",
+"Immobilier",
+"BERITH DIGITAL",
+"Conseil & Accompagnement",
+"Audiovisuel & Communication",
+"Services aux entreprises"
+];
+const descriptions=[
+"Organisation et suivi des missions de sécurité et de protection.",
+"Développement des activités touristiques et culturelles.",
+"Gestion des opportunités et projets immobiliers.",
+"Solutions numériques, sites web et transformation digitale.",
+"Conseil stratégique, accompagnement et développement des projets.",
+"Production audiovisuelle, communication et contenus.",
+"Prestations et solutions destinées aux entreprises."
+];
+const poleContainer=document.getElementById("poles");
+const poleSelect=document.getElementById("pole");
+poleNames.forEach((name,index)=>{
+ const card=document.createElement("article");
+ card.className="pole";
+ const title=document.createElement("h3");
+ title.textContent=name.trim();
+ const desc=document.createElement("p");
+ desc.textContent=descriptions[index];
+ card.append(title,desc);
+ poleContainer.appendChild(card);
+ const option=document.createElement("option");
+ option.value=name.trim();
+ option.textContent=name.trim();
+ poleSelect.appendChild(option);
 });
-
-function configureSupabase() {
-  if (
-    !SUPABASE_URL.startsWith("https://") ||
-    SUPABASE_URL.includes("COLLE_ICI") ||
-    SUPABASE_KEY.includes("COLLE_ICI")
-  ) {
-    showMessage(
-      authMessage,
-      "Configuration nécessaire : ajoute l’URL et la clé publique Supabase dans le code.",
-      true
-    );
-    return false;
-  }
-
-  if (!window.supabase || !window.supabase.createClient) {
-    showMessage(authMessage, "Impossible de charger Supabase. Vérifie ta connexion Internet.", true);
-    return false;
-  }
-
-  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  return true;
+function loadProspects(){
+ try{return JSON.parse(localStorage.getItem("berithOneProspects")||"[]")}
+ catch{return []}
 }
-
-authForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  if (!supabaseClient && !configureSupabase()) return;
-
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-
-  authSubmit.disabled = true;
-  showMessage(authMessage, "Traitement en cours…");
-
-  try {
-    const result = authMode === "signup"
-      ? await supabaseClient.auth.signUp({ email, password })
-      : await supabaseClient.auth.signInWithPassword({ email, password });
-
-    if (result.error) throw result.error;
-
-    if (authMode === "signup" && !result.data.session) {
-      showMessage(
-        authMessage,
-        "Compte créé. Vérifie ta boîte e-mail pour confirmer ton adresse avant de te connecter."
-      );
-      return;
-    }
-
-    authPanel.hidden = true;
-    showMessage(authMessage, "Connexion réussie.");
-    await loadDashboard();
-  } catch (error) {
-    showMessage(authMessage, error.message || "Une erreur est survenue.", true);
-  } finally {
-    authSubmit.disabled = false;
-  }
+function saveProspects(items){
+ localStorage.setItem("berithOneProspects",JSON.stringify(items));
+}
+function renderProspects(){
+ const items=loadProspects();
+ document.getElementById("count").textContent=items.length;
+ const container=document.getElementById("prospects");
+ container.replaceChildren();
+ if(!items.length){
+  container.innerHTML='<p class="note">Aucun prospect enregistré pour le moment.</p>';
+  return;
+ }
+ items.forEach(item=>{
+  const card=document.createElement("div");
+  card.className="pole";
+  const title=document.createElement("h3");
+  title.textContent=item.company;
+  const info=document.createElement("p");
+  info.textContent="Contact : "+(item.contact||"Non précisé")+" · Pôle : "+item.pole+" · Statut : "+item.status;
+  const notes=document.createElement("p");
+  notes.textContent="Téléphone : "+(item.phone||"Non précisé")+" · Notes : "+(item.notes||"Aucune");
+  card.append(title,info,notes);
+  container.appendChild(card);
+ });
+}
+document.getElementById("prospectForm").addEventListener("submit",event=>{
+ event.preventDefault();
+ const item={
+  company:document.getElementById("company").value.trim(),
+  contact:document.getElementById("contact").value.trim(),
+  phone:document.getElementById("phone").value.trim(),
+  pole:poleSelect.value,
+  status:document.getElementById("status").value,
+  notes:document.getElementById("notes").value.trim()
+ };
+ const items=loadProspects();
+ items.unshift(item);
+ saveProspects(items);
+ renderProspects();
+ document.getElementById("prospectForm").reset();
+ document.getElementById("message").textContent="Prospect enregistré sur cet appareil.";
 });
-
-document.getElementById("logoutBtn").addEventListener("click", async () => {
-  if (!supabaseClient) return;
-  const { error } = await supabaseClient.auth.signOut();
-  if (error) {
-    showMessage(authMessage, error.message, true);
-    return;
-  }
-  dashboard.hidden = true;
-  document.getElementById("logoutBtn").hidden = true;
-  document.getElementById("showLogin").hidden = false;
-  document.getElementById("showSignup").hidden = false;
-  currentUser.textContent = "—";
-  showMessage(authMessage, "Vous êtes déconnecté.");
+document.getElementById("exportBtn").addEventListener("click",()=>{
+ const items=loadProspects();
+ if(!items.length){
+  document.getElementById("message").textContent="Aucun prospect à exporter.";
+  return;
+ }
+ const fields=["company","contact","phone","pole","status","notes"];
+ const escapeCsv=value=>'"'+String(value??"").replace(/"/g,'""')+'"';
+ const csv=[fields.join(";"),...items.map(item=>fields.map(field=>escapeCsv(item[field])).join(";"))].join("\n");
+ const blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8;"});
+ const url=URL.createObjectURL(blob);
+ const link=document.createElement("a");
+ link.href=url;
+ link.download="berith-one-prospects.csv";
+ link.click();
+ URL.revokeObjectURL(url);
 });
-
-async function loadDashboard() {
-  const { data, error } = await supabaseClient.auth.getUser();
-  if (error || !data.user) {
-    showMessage(authMessage, "Connecte-toi pour accéder au tableau de bord.", true);
-    return;
-  }
-
-  currentUser.textContent = data.user.email;
-  dashboard.hidden = false;
-  document.getElementById("logoutBtn").hidden = false;
-  document.getElementById("showLogin").hidden = true;
-  document.getElementById("showSignup").hidden = true;
-  authPanel.hidden = true;
-
-  await loadPoles();
-  await loadProspects();
-}
-
-async function loadPoles() {
-  polesList.textContent = "Chargement des pôles…";
-  const { data, error } = await supabaseClient
-    .from("poles")
-    .select("*")
-    .order("id");
-
-  if (error) {
-    polesList.textContent = "Erreur de chargement des pôles : " + error.message;
-    showMessage(connectionStatus, "Vérifie les autorisations de la table poles.", true);
-    return;
-  }
-
-  poles = data || [];
-  polesList.replaceChildren();
-
-  if (!poles.length) {
-    polesList.textContent = "Aucun pôle trouvé dans la base de données.";
-    return;
-  }
-
-  poles.forEach((pole) => {
-    const card = document.createElement("article");
-    card.className = "pole-card";
-    const title = document.createElement("h3");
-    title.textContent = pole.nom || pole.name || pole.libelle || pole.titre || ("Pôle " + pole.id);
-    const description = document.createElement("p");
-    description.textContent = "Pôle BERITH ALLIANCE GROUP";
-    card.append(title, description);
-    polesList.appendChild(card);
-
-    const option = document.createElement("option");
-    option.value = pole.id;
-    option.textContent = title.textContent;
-    poleSelect.appendChild(option);
-  });
-
-  showMessage(connectionStatus, "Connecté à Supabase. Les pôles sont chargés.");
-}
-
-prospectForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  if (!supabaseClient) return;
-
-  const payload = {
-    nom_entreprise: document.getElementById("company").value.trim(),
-    nom_contact: document.getElementById("contact").value.trim() || null,
-    telephone: document.getElementById("phone").value.trim() || null,
-    email: document.getElementById("prospectEmail").value.trim() || null,
-    pole_id: poleSelect.value || null,
-    statut: document.getElementById("prospectStatus").value,
-    prochaine_action: document.getElementById("nextAction").value.trim() || null,
-    notes: document.getElementById("notes").value.trim() || null
-  };
-
-  if (!payload.pole_id) {
-    showMessage(prospectMessage, "Choisis un pôle.", true);
-    return;
-  }
-
-  const submitButton = prospectForm.querySelector('button[type="submit"]');
-  submitButton.disabled = true;
-  showMessage(prospectMessage, "Enregistrement en cours…");
-
-  try {
-    const { error } = await supabaseClient.from("prospects").insert(payload);
-    if (error) throw error;
-    prospectForm.reset();
-    showMessage(prospectMessage, "Prospect enregistré.");
-    await loadProspects();
-  } catch (error) {
-    showMessage(prospectMessage, "Enregistrement impossible : " + error.message, true);
-  } finally {
-    submitButton.disabled = false;
-  }
-});
-
-async function loadProspects() {
-  prospectsList.textContent = "Chargement des prospects…";
-  const { data, error } = await supabaseClient
-    .from("prospects")
-    .select("id, nom_entreprise, nom_contact, telephone, email, statut, prochaine_action, notes, pole_id, created_at")
-    .order("created_at", { ascending: false });
-
-  if (error) {
-    prospectsList.textContent = "Erreur de chargement : " + error.message;
-    return;
-  }
-
-  prospectsList.replaceChildren();
-
-  if (!data || !data.length) {
-    prospectsList.textContent = "Aucun prospect enregistré pour le moment.";
-    return;
-  }
-
-  data.forEach((prospect) => {
-    const article = document.createElement("article");
-    article.className = "prospect-item";
-
-    const title = document.createElement("h3");
-    title.textContent = prospect.nom_entreprise || "Prospect sans nom";
-
-    const details = document.createElement("p");
-    details.textContent = [
-      prospect.nom_contact,
-      prospect.telephone,
-      prospect.email,
-      prospect.statut
-    ].filter(Boolean).join(" · ");
-
-    const next = document.createElement("p");
-    next.textContent = prospect.prochaine_action
-      ? "Prochaine action : " + prospect.prochaine_action
-      : "";
-
-    const note = document.createElement("p");
-    note.textContent = prospect.notes || "";
-
-    article.append(title, details, next, note);
-    prospectsList.appendChild(article);
-  });
-}
-
-document.getElementById("refreshProspects").addEventListener("click", loadProspects);
-
-if (configureSupabase()) {
-  supabaseClient.auth.getSession().then(({ data, error }) => {
-    if (error) {
-      showMessage(authMessage, error.message, true);
-      return;
-    }
-    if (data.session) {
-      loadDashboard();
-    }
-  });
-}
+renderProspects();
 </script>
-
 </body>
 </html>
